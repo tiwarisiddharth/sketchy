@@ -8,20 +8,7 @@ while(True):
     blur=cv2.GaussianBlur(gry,(5,5),0)
     blur=cv2.bilateralFilter(blur,30,20,20)
     blur=cv2.medianBlur(blur,3)
-    #blur=('cv2.GaussianBlur(gry,(21,21),0)','cv2.bilateralFilter(gry,10,20,20)','cv2.medianBlur(gry,3)')
-
-#    blur=cv2.bilateralFilter(gry,10,10,10)
-#    x=input('Well,i know 3 methods of blurring :- 1)Gaussian  2)bilateralFilater 3)medianBlur')
-#   for i in x:
-#    blur=cv2.bilateralFilter(gry,30,50,60)
-
-
-#    print('Well,i know 2 methods of edge detecction :- 1)Canny 2)Laplacian')
-
-
-
     can=cv2.Laplacian(blur,cv2.CV_64F)
-#    can=cv2.Canny(blur,15,10)
     i,can=cv2.threshold(can,150,255,cv2.THRESH_TRUNC)
     cv2.imshow('w',can)
     ch=cv2.waitKey(1)
